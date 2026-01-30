@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% block title %}Наш проект | BeeProtect{% endblock %}
+{% block content %}
+    <!-- Навигация -->
+    <nav class="nav-container">
+        <div class="container nav-content">
+            <a href="/company" class="nav-logo">
+                <i class="fas fa-bee nav-logo-icon"></i>
+                <span class="nav-logo-text">BeeProtect</span>
+            </a>
+            <div class="nav-links">
+                <a href="/company" class="nav-link">Наша команда</a>
+                <a href="/project" class="nav-link active">Наш проект</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <i class="fas fa-bee logo-icon"></i>
+                </div>
+                <h1>Проект BeeProtect</h1>
+                <p class="tagline fade-in">
+                    Инновационная система мониторинга здоровья пчелосемей с использованием искусственного интеллекта и компьютерного зрения
+                </p>
+
+                <div class="stats fade-in">
+                    <div class="stat-item">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">снижение потерь</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">точность ИИ</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">мониторинг</span>
+                    </div>
+                </div>
+
+                <button class="cta-button fade-in" data-scroll="problem">
+                    <i class="fas fa-arrow-down"></i>
+                    Узнать о проблеме
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section" id="problem">
+        <div class="container">
+            <h2 class="section-title fade-in">Проблема, которую <span class="highlight">мы решаем</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.2rem; color: var(--text-gray);" class="fade-in">
+                Пчелы играют ключевую роль в нашей экосистеме, но их популяция стремительно сокращается. Мы создаем технологию, которая поможет изменить эту ситуацию.
+            </p>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-in">
+                    <i class="fas fa-skull-crossbones mission-icon"></i>
+                    <h3>Массовая гибель</h3>
+                    <p>Ежегодно пчеловоды теряют до 40% своих пчелосемей из-за болезней и паразитов</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-clock mission-icon"></i>
+                    <h3>Позднее обнаружение</h3>
+                    <p>Болезни часто обнаруживаются слишком поздно, когда спасти пчелосемью уже невозможно</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-dollar-sign mission-icon"></i>
+                    <h3>Экономические потери</h3>
+                    <p>Каждая потерянная пчелосемья стоит около 5000₽, а также влияет на урожайность культур</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(45,45,45,0.95) 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in">Наше <span class="highlight">Решение</span></h2>
+
+            <div class="tech-stack">
+                <div class="tech-item fade-in">
+                    <i class="fas fa-video tech-icon"></i>
+                    <h3>Видеомониторинг</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Камеры наблюдения у летков ульев записывают поведение пчел 24/7</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-brain tech-icon"></i>
+                    <h3>ИИ-анализ</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Нейросеть анализирует поведение и выявляет ранние признаки заболеваний</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-bell tech-icon"></i>
+                    <h3>Мгновенные уведомления</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Пчеловод получает оповещение на смартфон при обнаружении проблем</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-chart-line tech-icon"></i>
+                    <h3>Аналитика</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Подробные отчеты и рекомендации по лечению и профилактике</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Как это <span class="highlight">работает</span></h2>
+
+            <div class="goals-grid">
+                <div class="goal-item fade-in">
+                    <div class="goal-number">01</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Установка камер</h3>
+                        <p style="color: var(--text-gray);">Компактные камеры устанавливаются у летков ульев для круглосуточного наблюдения</p>
+                    </div>
+                </div>
+
+                <div class="goal-item fade-in">
+                    <div class="goal-number">02</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Сбор данных</h3>
+                        <p style="color: var(--text-gray);">Система собирает видео и данные о поведении пчел, активности улья</p>
+                    </div>
+                </div>
+
+                <div class="goal-item fade-in">
+                    <div class="goal-number">03</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Анализ ИИ</h3>
+                        <p style="color: var(--text-gray);">Нейросеть анализирует данные и выявляет аномалии в поведении пчел</p>
+                    </div>
+                </div>
+
+                <div class="goal-item fade-in">
+                    <div class="goal-number">04</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Уведомления</h3>
+                        <p style="color: var(--text-gray);">Пчеловод получает мгновенное оповещение о проблемах на смартфон</p>
+                    </div>
+                </div>
+
+                <div class="goal-item fade-in">
+                    <div class="goal-number">05</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Рекомендации</h3>
+                        <p style="color: var(--text-gray);">Система предлагает рекомендации по лечению и профилактике</p>
+                    </div>
+                </div>
+
+                <div class="goal-item fade-in">
+                    <div class="goal-number">06</div>
+                    <div>
+                        <h3 style="color: var(--text-light); margin-bottom: 10px;">Предотвращение</h3>
+                        <p style="color: var(--text-gray);">Раннее вмешательство спасает пчелосемью от гибели</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(45,45,45,0.95) 0%, var(--dark-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in">Преимущества <span class="highlight">BeeProtect</span></h2>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-in">
+                    <i class="fas fa-chart-line mission-icon"></i>
+                    <h3>Экономия средств</h3>
+                    <p>Снижение потерь пчелосемей на 40% экономит тысячи рублей ежегодно</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-clock mission-icon"></i>
+                    <h3>Экономия времени</h3>
+                    <p>Автоматический мониторинг освобождает время пчеловода для других задач</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-seedling mission-icon"></i>
+                    <h3>Защита экосистемы</h3>
+                    <p>Сохранение популяции пчел важно для опыления растений и экологического баланса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Технологический <span class="highlight">стек</span></h2>
+
+            <div class="tech-stack">
+                <div class="tech-item fade-in">
+                    <i class="fab fa-python tech-icon"></i>
+                    <h3>Python & TensorFlow</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Разработка нейросетевых моделей для анализа поведения</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-cloud tech-icon"></i>
+                    <h3>Облачные вычисления</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Обработка и хранение больших объемов видео-данных</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-mobile-alt tech-icon"></i>
+                    <h3>Мобильное приложение</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Удобный интерфейс для пчеловодов на iOS и Android</p>
+                </div>
+
+                <div class="tech-item fade-in">
+                    <i class="fas fa-server tech-icon"></i>
+                    <h3>Edge Computing</h3>
+                    <p style="color: var(--text-gray); margin-top: 10px;">Локальная обработка данных для снижения задержек</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(45,45,45,0.95) 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in">Интересует <span class="highlight">BeeProtect?</span></h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 50px; font-size: 1.2rem; color: var(--text-gray);" class="fade-in">
+                Хотите внедрить BeeProtect на своей пасеке? Оставьте email, и мы свяжемся с вами!
+            </p>
+
+            <div class="contact-form fade-in" style="max-width: 500px; margin: 0 auto;">
+                <input type="email" class="contact-input" placeholder="Ваш email" style="width: 100%; margin-bottom: 20px;">
+                <button class="cta-button" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i>
+                    Отправить заявку
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-bee" style="font-size: 2rem; color: var(--primary-yellow);"></i>
+                    <h2 style="background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem;">BeeProtect</h2>
+                </div>
+
+                <div class="nav-links">
+                    <a href="/company" class="nav-link">Наша команда</a>
+                    <a href="/project" class="nav-link active">Наш проект</a>
+                </div>
+
+                <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto; text-align: center;">
+                    Инновационная система мониторинга здоровья пчелосемей с использованием искусственного интеллекта
+                </p>
+
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:amal-makhmutov@mail.ru" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <p class="copyright">© 2024 BeeProtect. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+{{ super() }}
+{% endblock %}
