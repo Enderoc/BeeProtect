@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "functions": {
+    "api/main.py": {
+      "runtime": "python3.11",
+      "handler": "app",
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/main.py"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}
