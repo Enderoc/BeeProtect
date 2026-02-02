@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда | BeeProtect</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+    
+<style>
+    :root {
+        --primary-yellow: #FFD700;
+        --secondary-yellow: #FFC107;
+        --dark-yellow: #FFA000;
+        --light-yellow: #FFF9C4;
+        --dark-bg: #1A1A1A;
+        --card-bg: #2D2D2D;
+        --text-light: #FFFFFF;
+        --text-gray: #B0B0B0;
+        --accent-green: #4CAF50;
+        --accent-blue: #2196F3;
+        --accent-orange: #FF9800;
+        --accent-purple: #9C27B0;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Navigation */
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .logo-image {
+        height: 40px;
+        width: auto;
+        border-radius: 8px;
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .nav-logo-icon {
+        font-size: 1.8rem;
+        color: var(--primary-yellow);
+    }
+
+    .nav-logo-text {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .fsi-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+        font-size: 0.8rem;
+    }
+
+    .fsi-logo {
+        height: 20px;
+        width: auto;
+        border-radius: 4px;
+    }
+
+    .winner-text {
+        color: var(--primary-yellow);
+        font-weight: 600;
+        font-size: 0.85rem;
+        background: rgba(255, 215, 0, 0.1);
+        padding: 3px 8px;
+        border-radius: 12px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+    }
+
+    .nav-link {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: var(--text-light);
+        background: rgba(255, 215, 0, 0.1);
+    }
+
+    .nav-link.active {
+        color: var(--primary-yellow);
+        background: rgba(255, 215, 0, 0.15);
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 3px;
+        background: var(--primary-yellow);
+        border-radius: 2px;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, rgba(26,26,26,0.9) 0%, rgba(45,45,45,0.8) 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 120px 0 80px;
+        margin-top: 60px;
+    }
+
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, var(--dark-bg));
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .logo-icon {
+        font-size: 5rem;
+        color: var(--primary-yellow);
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+    }
+
+    h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        color: var(--text-gray);
+        max-width: 800px;
+        margin: 0 auto 40px;
+    }
+
+    .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange));
+        color: var(--dark-bg);
+        padding: 15px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Section Common */
+    .section {
+        padding: 100px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-light);
+    }
+
+    .highlight {
+        color: var(--primary-yellow);
+    }
+
+    /* Mission Cards */
+    .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .mission-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 40px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        border: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .mission-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-yellow);
+    }
+
+    .mission-icon {
+        font-size: 3rem;
+        color: var(--primary-yellow);
+        margin-bottom: 20px;
+    }
+
+    /* Team Section */
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    .team-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 40px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .member-avatar {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange));
+        border-radius: 50%;
+        margin: 0 auto 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3.5rem;
+        color: var(--dark-bg);
+    }
+
+    .member-name {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: var(--text-light);
+    }
+
+    .member-role {
+        color: var(--primary-yellow);
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .member-bio {
+        color: var(--text-gray);
+        line-height: 1.7;
+    }
+
+    .member-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .skill-tag {
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--primary-yellow);
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    /* Stats */
+    .stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin: 40px 0;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+    }
+
+    .stat-label {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    /* Values Section */
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .value-item {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .value-item:hover {
+        transform: translateY(-5px);
+        border: 1px solid var(--primary-yellow);
+    }
+
+    .value-icon {
+        font-size: 2.5rem;
+        color: var(--primary-yellow);
+        margin-bottom: 20px;
+    }
+
+    /* University Info */
+    .university-info {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 193, 7, 0.05));
+        border-radius: 20px;
+        padding: 40px;
+        margin: 50px 0;
+        text-align: center;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .university-logo {
+        height: 60px;
+        width: auto;
+        margin-bottom: 20px;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--card-bg);
+        padding: 60px 0 30px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 215, 0, 0.1);
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
+        background: var(--dark-bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-yellow);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background: var(--primary-yellow);
+        color: var(--dark-bg);
+        transform: translateY(-5px);
+    }
+
+    .copyright {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+        margin-top: 30px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav-content {
+            flex-direction: column;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .nav-logo-container {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .fsi-badge {
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .nav-links {
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .nav-link {
+            padding: 6px 12px;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+        }
+
+        .logo-icon {
+            font-size: 3rem;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .stats {
+            gap: 20px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+        }
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="nav-container">
+        <div class="container nav-content">
+            <div class="nav-logo-container">
+                <a href="/" class="nav-logo">
+                    <img src="assets/images/logo-bp.png" alt="BeeProtect Logo" class="logo-image">
+                    <span class="nav-logo-text">BeeProtect</span>
+                </a>
+                <div class="fsi-badge">
+                    <img src="assets/images/logo-fsi.png" alt="ФСИ" class="fsi-logo">
+                    <span class="winner-text">Победитель ФСИ 2025</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Проект</a>
+                <a href="/company" class="nav-link active">Команда</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    <i class="fas fa-users logo-icon"></i>
+                </div>
+                <h1>Наша команда</h1>
+                <p class="tagline fade-in">
+                    Ключевые участники проекта BeeProtect, объединенные общей миссией — защитить пчел с помощью передовых технологий искусственного интеллекта
+                </p>
+
+                <div class="university-info fade-in">
+                    <img src="assets/images/logo-uy.png" alt="УУНИТ" class="university-logo">
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Уфимский университет науки и технологий</h3>
+                    <p style="color: var(--text-gray);">
+                        Проект разрабатывается при поддержке и в сотрудничестве с ведущим техническим вузом Республики Башкортостан. Научное руководство и экспертиза обеспечивают качество и практическую значимость наших разработок.
+                    </p>
+                </div>
+
+                <div class="stats fade-in">
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">ключевых направления</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">лет суммарного опыта</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">преданность цели</span>
+                    </div>
+                </div>
+
+                <button class="cta-button fade-in" data-scroll="team">
+                    <i class="fas fa-arrow-down"></i>
+                    Знакомьтесь с командой
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title fade-in">Ключевые участники <span class="highlight">проекта</span></h2>
+
+            <div class="team-grid">
+                <!-- Амаль Махмутов -->
+                <div class="team-card fade-in">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="member-name">Амаль Махмутов</h3>
+                    <p class="member-role">Основатель и технический руководитель</p>
+                    <p class="member-bio">
+                        Студент УУНИТ, специалист в области машинного обучения и компьютерного зрения. 
+                        Автор идеи проекта и главный разработчик системы. Отвечает за техническую реализацию, 
+                        архитектуру нейросетевых моделей и интеграцию всех компонентов системы.
+                    </p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch/TensorFlow</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Машинное обучение</span>
+                        <span class="skill-tag">Архитектура систем</span>
+                    </div>
+                </div>
+
+                <!-- Эксперты-пчеловоды -->
+                <div class="team-card fade-in">
+                    <div class="member-avatar">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="member-name">Эксперты-пчеловоды</h3>
+                    <p class="member-role">Практические консультанты проекта</p>
+                    <p class="member-bio">
+                        Опытные пчеловоды с многолетним стажем работы на пасеках Республики Башкортостан. 
+                        Обеспечивают практическую экспертизу, помогают в сборе данных, валидации алгоритмов 
+                        и тестировании системы в реальных условиях. Их опыт позволяет адаптировать технологические 
+                        решения к потребностям реального пчеловодства.
+                    </p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Пчеловодство</span>
+                        <span class="skill-tag">Энтомология</span>
+                        <span class="skill-tag">Апитерапия</span>
+                        <span class="skill-tag">Сельское хозяйство</span>
+                        <span class="skill-tag">Полевые исследования</span>
+                    </div>
+                </div>
+
+                <!-- Научные руководители -->
+                <div class="team-card fade-in">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="member-name">Научные руководители</h3>
+                    <p class="member-role">Профессора и преподаватели УУНИТ</p>
+                    <p class="member-bio">
+                        Преподаватели и ученые Уфимского университета науки и технологий, 
+                        курирующие проект и обеспечивающие научно-методическую поддержку. 
+                        Консультируют по вопросам методологии исследований, статистического анализа данных 
+                        и научной валидации результатов. Обеспечивают связь с академическим сообществом.
+                    </p>
+                    <div class="member-skills">
+                        <span class="skill-tag">Искусственный интеллект</span>
+                        <span class="skill-tag">Научное руководство</span>
+                        <span class="skill-tag">Методология исследований</span>
+                        <span class="skill-tag">Академическая экспертиза</span>
+                        <span class="skill-tag">Публикационная активность</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;" class="fade-in">
+                <h3 style="color: var(--text-light); margin-bottom: 20px;">Структура сотрудничества</h3>
+                <p style="color: var(--text-gray); max-width: 800px; margin: 0 auto;">
+                    Проект построен на синергии трех ключевых направлений: <span style="color: var(--primary-yellow);">техническая разработка</span> (Амаль Махмутов), 
+                    <span style="color: var(--primary-yellow);">практическая экспертиза</span> (пчеловоды) и <span style="color: var(--primary-yellow);">научное руководство</span> (преподаватели УУНИТ). 
+                    Такая структура обеспечивает баланс между инновационностью, практической применимостью и научной обоснованностью.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark-bg) 0%, rgba(45,45,45,0.95) 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in">Принципы нашей <span class="highlight">работы</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.2rem; color: var(--text-gray);" class="fade-in">
+                Мы строим нашу работу на трех фундаментальных принципах, которые обеспечивают успех проекта
+            </p>
+
+            <div class="mission-grid">
+                <div class="mission-card fade-in">
+                    <i class="fas fa-code mission-icon"></i>
+                    <h3>Техническое совершенство</h3>
+                    <p>Используем современные технологии ИИ и компьютерного зрения для создания точных и надежных решений</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-handshake mission-icon"></i>
+                    <h3>Практическая ориентированность</h3>
+                    <p>Все разработки тестируются и адаптируются совместно с опытными пчеловодами для максимальной полезности</p>
+                </div>
+
+                <div class="mission-card fade-in">
+                    <i class="fas fa-flask mission-icon"></i>
+                    <h3>Научная обоснованность</h3>
+                    <p>Работаем под руководством научных сотрудников УУНИТ, обеспечивая методологическую корректность</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Наши <span class="highlight">ценности</span></h2>
+
+            <div class="values-grid">
+                <div class="value-item fade-in">
+                    <i class="fas fa-rocket value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Инновации</h3>
+                    <p style="color: var(--text-gray);">Создаем уникальные технологические решения на стыке ИИ и сельского хозяйства</p>
+                </div>
+
+                <div class="value-item fade-in">
+                    <i class="fas fa-medal value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Качество</h3>
+                    <p style="color: var(--text-gray);">Придерживаемся высоких стандартов во всех аспектах разработки</p>
+                </div>
+
+                <div class="value-item fade-in">
+                    <i class="fas fa-users value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Коллаборация</h3>
+                    <p style="color: var(--text-gray);">Объединяем экспертов разных областей для достижения лучших результатов</p>
+                </div>
+
+                <div class="value-item fade-in">
+                    <i class="fas fa-leaf value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Экологичность</h3>
+                    <p style="color: var(--text-gray);">Разрабатываем технологии, которые помогают сохранять природные экосистемы</p>
+                </div>
+
+                <div class="value-item fade-in">
+                    <i class="fas fa-graduation-cap value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Обучение</h3>
+                    <p style="color: var(--text-gray);">Постоянно развиваемся и перенимаем опыт у экспертов разных областей</p>
+                </div>
+
+                <div class="value-item fade-in">
+                    <i class="fas fa-handshake value-icon"></i>
+                    <h3 style="color: var(--text-light); margin-bottom: 15px;">Ответственность</h3>
+                    <p style="color: var(--text-gray);">Осознаем важность нашей миссии и несем ответственность за результаты</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" style="background: linear-gradient(135deg, rgba(45,45,45,0.95) 0%, var(--dark-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in">Сотрудничество с <span class="highlight">проектом</span></h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 50px; font-size: 1.2rem; color: var(--text-gray);" class="fade-in">
+                Проект открыт для сотрудничества с пчеловодами, исследователями и технологическими партнерами
+            </p>
+
+            <div class="contact-form fade-in" style="max-width: 500px; margin: 0 auto;">
+                <input type="email" class="contact-input" placeholder="Ваш email" style="width: 100%; padding: 15px; margin-bottom: 20px; background: var(--card-bg); border: 1px solid rgba(255,215,0,0.2); border-radius: 10px; color: var(--text-light); font-size: 1rem;">
+                <textarea placeholder="Ваше сообщение или предложение о сотрудничестве" style="width: 100%; padding: 15px; margin-bottom: 20px; background: var(--card-bg); border: 1px solid rgba(255,215,0,0.2); border-radius: 10px; color: var(--text-light); font-size: 1rem; min-height: 120px; resize: vertical;"></textarea>
+                <button class="cta-button" style="width: 100%;">
+                    <i class="fas fa-paper-plane"></i>
+                    Отправить предложение
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <img src="assets/images/logo-bp.png" alt="BeeProtect Logo" style="height: 40px; width: auto; border-radius: 8px;">
+                    <h2 style="background: linear-gradient(45deg, var(--primary-yellow), var(--accent-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2rem;">BeeProtect</h2>
+                </div>
+
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Проект</a>
+                    <a href="/company" class="nav-link active">Команда</a>
+                </div>
+
+                <div class="fsi-badge" style="justify-content: center;">
+                    <img src="assets/images/logo-fsi.png" alt="ФСИ" class="fsi-logo">
+                    <span class="winner-text">Победитель гранта ФСИ 2025</span>
+                </div>
+
+                <p style="color: var(--text-gray); max-width: 600px; margin: 0 auto; text-align: center;">
+                    Команда молодых инноваторов из УУНИТ, создающая будущее сельского хозяйства с помощью искусственного интеллекта
+                </p>
+
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:amal-makhmutov@mail.ru" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <p class="copyright">© 2024-2026 BeeProtect. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const currentPath = window.location.pathname;
+
+        // Подсветка активной навигации
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPath || 
+                (currentPath === '/' && link.getAttribute('href') === '/')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // Анимация появления при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Анимация статистики
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            if (stats.length > 0) {
+                stats.forEach(stat => {
+                    const text = stat.textContent;
+                    const target = parseInt(text);
+                    if (!isNaN(target)) {
+                        let current = 0;
+                        const increment = target / 30;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            stat.textContent = Math.round(current) + (text.includes('%') ? '%' : '');
+                        }, 50);
+                    }
+                });
+            }
+        }
+
+        // Запускаем анимацию статистики
+        animateStats();
+
+        // Обработчик кнопок CTA
+        document.querySelectorAll('.cta-button[data-scroll]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('data-scroll');
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Обработчик формы контактов
+        const contactButton = document.querySelector('.contact-form .cta-button');
+        if (contactButton) {
+            const emailInput = document.querySelector('.contact-input');
+            const messageInput = document.querySelector('textarea');
+            
+            contactButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (emailInput && emailInput.value && emailInput.value.includes('@')) {
+                    alert('Спасибо за ваше предложение о сотрудничестве! Мы свяжемся с вами в ближайшее время.');
+                    emailInput.value = '';
+                    if (messageInput) messageInput.value = '';
+                } else {
+                    alert('Пожалуйста, введите корректный email и ваше сообщение');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
